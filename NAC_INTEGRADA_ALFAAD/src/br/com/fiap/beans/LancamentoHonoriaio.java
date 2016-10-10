@@ -3,13 +3,13 @@ package br.com.fiap.beans;
 public class LancamentoHonoriaio {
 
 	private int codigo;
-	private TipoTarefa tipoTarefa;
+	private String tipoTarefa;
 	private Processo processo;
 	private String dataHonorario;
 	private float qtdeHora;
 	private String observacao;
 	
-	public LancamentoHonoriaio(int codigo, TipoTarefa tipoTarefa, Processo processo, String dataHonorario, float qtdeHora,
+	public LancamentoHonoriaio(int codigo, String tipoTarefa, Processo processo, String dataHonorario, float qtdeHora,
 			String observacao) {
 		super();
 		this.codigo = codigo;
@@ -32,10 +32,10 @@ public class LancamentoHonoriaio {
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
-	public TipoTarefa getTipoTarefa() {
+	public String getTipoTarefa() {
 		return tipoTarefa;
 	}
-	public void setTipoTarefa(TipoTarefa tipoTarefa) {
+	public void setTipoTarefa(String tipoTarefa) {
 		this.tipoTarefa = tipoTarefa;
 	}
 	public Processo getProcesso() {
