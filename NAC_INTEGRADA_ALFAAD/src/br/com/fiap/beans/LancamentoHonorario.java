@@ -1,6 +1,6 @@
 package br.com.fiap.beans;
 
-public class LancamentoHonoriaio {
+public class LancamentoHonorario {
 
 	private int codigo;
 	private String tipoTarefa;
@@ -9,7 +9,7 @@ public class LancamentoHonoriaio {
 	private float qtdeHora;
 	private String observacao;
 	
-	public LancamentoHonoriaio(int codigo, String tipoTarefa, Processo processo, String dataHonorario, float qtdeHora,
+	public LancamentoHonorario(int codigo, String tipoTarefa, Processo processo, String dataHonorario, float qtdeHora,
 			String observacao) {
 		super();
 		this.codigo = codigo;
@@ -21,7 +21,7 @@ public class LancamentoHonoriaio {
 	}
 	
 	
-	public LancamentoHonoriaio() {
+	public LancamentoHonorario() {
 		super();
 	}
 
