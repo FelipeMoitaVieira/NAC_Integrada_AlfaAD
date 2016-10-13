@@ -2,8 +2,8 @@ package br.com.fiap.beans;
 
 public class Advogado extends Pessoa{
 
-	private int numeroOAB;
-	private int cpf;
+	private String numeroOAB;
+	private String cpf;
 	private String rg;
 	private String email;
 	private String senha;
@@ -15,7 +15,7 @@ public class Advogado extends Pessoa{
 
 
 
-	public Advogado(int codigo, String nome, Endereco[] endereco, Telefone[] telefone, int numeroOAB, int cpf,
+	public Advogado(int codigo, String nome, Endereco[] endereco, Telefone[] telefone, String numeroOAB, String cpf,
 			String rg, String email, String senha, String especialidade) {
 		super(codigo, nome, endereco, telefone);
 		this.numeroOAB = numeroOAB;
@@ -28,25 +28,25 @@ public class Advogado extends Pessoa{
 
 
 
-	public int getNumeroOAB() {
+	public String getNumeroOAB() {
 		return numeroOAB;
 	}
 
 
 
-	public void setNumeroOAB(int numeroOAB) {
+	public void setNumeroOAB(String numeroOAB) {
 		this.numeroOAB = numeroOAB;
 	}
 
 
 
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
 
 
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 

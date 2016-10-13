@@ -27,8 +27,8 @@ public class AdvogadoDAO extends PessoaDAO {
  
         try{
         	
-            estrutura.setInt(1, a.getNumeroOAB());
-            estrutura.setInt(2, a.getCpf());
+            estrutura.setString(1, a.getNumeroOAB());
+            estrutura.setString(2, a.getCpf());
             estrutura.setString(3, a.getRg());
             estrutura.setString(4, a.getEmail());
             estrutura.setString(5, a.getSenha());
@@ -63,8 +63,8 @@ public class AdvogadoDAO extends PessoaDAO {
         while (resultadoDados.next()){
             Advogado advogado = new Advogado();
  
-            advogado.setNumeroOAB(resultadoDados.getInt("NR_OAB"));
-            advogado.setCpf(resultadoDados.getInt("NR_CPF"));
+            advogado.setNumeroOAB(resultadoDados.getString("NR_OAB"));
+            advogado.setCpf(resultadoDados.getString("NR_CPF"));
             advogado.setRg(resultadoDados.getString("NR_RG"));
             advogado.setEmail(resultadoDados.getString("DS_EMAIL"));
             advogado.setSenha(resultadoDados.getString("DS_SENHA"));
