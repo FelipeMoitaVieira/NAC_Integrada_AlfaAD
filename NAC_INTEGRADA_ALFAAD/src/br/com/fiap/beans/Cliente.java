@@ -3,7 +3,7 @@ package br.com.fiap.beans;
 public class Cliente extends Pessoa {
 
 	private String razaoSocial;
-	private int cnpj;
+	private String cnpj;
 	private String inscricaoEstadual;
 	private String email;
 	private String senha;
@@ -11,7 +11,7 @@ public class Cliente extends Pessoa {
 	
 	public Cliente() {}
 	
-	public Cliente(int codigo, String nome, Endereco[] endereco, Telefone[] telefone, String razaoSocial, int cnpj,
+	public Cliente(int codigo, String nome, Endereco[] endereco, Telefone[] telefone, String razaoSocial, String cnpj,
 			String inscricaoEstadual, String email, String senha) {
 		super(codigo, nome, endereco, telefone);
 		this.razaoSocial = razaoSocial;
@@ -26,10 +26,10 @@ public class Cliente extends Pessoa {
 	public void setRazaoSocial(String razaoSocial) {
 		this.razaoSocial = razaoSocial;
 	}
-	public int getCnpj() {
+	public String getCnpj() {
 		return cnpj;
 	}
-	public void setCnpj(int cnpj) {
+	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
 	public String getInscricaoEstadual() {
