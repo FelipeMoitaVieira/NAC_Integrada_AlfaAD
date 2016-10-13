@@ -1,5 +1,7 @@
 package br.com.fiap.beans;
 
+import java.util.List;
+
 public class Advogado extends Pessoa{
 
 	private String numeroOAB;
@@ -15,8 +17,10 @@ public class Advogado extends Pessoa{
 
 
 
-	public Advogado(int codigo, String nome, Endereco[] endereco, Telefone[] telefone, String numeroOAB, String cpf,
-			String rg, String email, String senha, String especialidade) {
+	
+
+	public Advogado(int codigo, String nome, List<Endereco> endereco, List<Telefone> telefone, String numeroOAB,
+			String cpf, String rg, String email, String senha, String especialidade) {
 		super(codigo, nome, endereco, telefone);
 		this.numeroOAB = numeroOAB;
 		this.cpf = cpf;
