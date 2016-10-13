@@ -21,11 +21,19 @@ public class AdvogadoDAO extends PessoaDAO {
  
     public void gravar (Advogado a, Connection conexao ) throws Exception{
  
-        String sql = "insert into T_AAD_ADVOGADO" + ("NR_OAB, NR_CPF, NR_RG, DS_EMAIL, DS_SENHA");
+    	PreparedStatement strt = conexao.prepareStatement("insert into T_AAD_PESSOA "
+				+ "(CD_PESSOA, NM_NOME) "
+				+ "values (SQ_AM_PESSOA.nextval,?)");
+    	
+    	strt.setString(1, a.getNome());
+    	
+    	strt.execute();
+    	
+        PreparedStatement estrutura = conexao.prepareStatement("insert into T_AAD_ADVOGADO "
+        		+ "(NR_OAB, NR_CPF, NR_RG, DS_EMAIL, DS_SENHA,CD_ADVOGADO) "
+        		+ "values (?,?,?,?,?,SQ_AM_PESSOA.currval)");
  
-        PreparedStatement estrutura = conexao.prepareStatement(sql);
- 
-        try{
+        
         	
             estrutura.setString(1, a.getNumeroOAB());
             estrutura.setString(2, a.getCpf());
@@ -35,9 +43,7 @@ public class AdvogadoDAO extends PessoaDAO {
             estrutura.execute();
             estrutura.close();
  
-        }catch (SQLException e){
-            throw new RuntimeException();
-        }
+       
  
     }
  
