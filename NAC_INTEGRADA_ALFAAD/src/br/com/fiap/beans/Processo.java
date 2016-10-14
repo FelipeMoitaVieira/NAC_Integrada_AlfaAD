@@ -10,12 +10,12 @@ public class Processo {
 	private String dataAbertura;
 	private String dataFechamento;
 	private String dataDiaVencimento;
-	private short resultado;
-	private short situacao;
+	private byte resultado;
+	private byte situacao;
 	private String observacao;
 	
 	public Processo(long numeroProcesso, Advogado advogado, Forum forum, Cliente cliente, String descricaoProcesso,
-			String dataAbertura, String dataFechamento, String dataDiaVencimento, short resultado, short situacao,
+			String dataAbertura, String dataFechamento, String dataDiaVencimento, byte resultado, byte situacao,
 			String observacao) {
 		super();
 		this.numeroProcesso = numeroProcesso;
@@ -99,19 +99,19 @@ public class Processo {
 		this.dataDiaVencimento = dataDiaVencimento;
 	}
 
-	public short getResultado() {
+	public byte getResultado() {
 		return resultado;
 	}
 
-	public void setResultado(short resultado) {
+	public void setResultado(byte resultado) {
 		this.resultado = resultado;
 	}
 
-	public short getSituacao() {
+	public byte getSituacao() {
 		return situacao;
 	}
 
-	public void setSituacao(short situacao) {
+	public void setSituacao(byte situacao) {
 		this.situacao = situacao;
 	}
 

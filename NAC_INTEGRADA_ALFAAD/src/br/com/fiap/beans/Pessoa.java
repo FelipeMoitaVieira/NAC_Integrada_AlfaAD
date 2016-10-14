@@ -1,13 +1,15 @@
 package br.com.fiap.beans;
 
+import java.util.List;
+
 public abstract class Pessoa {
 
-	private int codigo;
+	private long codigo;
 	private String nome;
-	private Endereco[] endereco;
-	private Telefone[] telefone;
+	private List <Endereco> endereco;
+	private List <Telefone> telefone;
 	
-	public Pessoa(int codigo, String nome, Endereco[] endereco, Telefone[] telefone) {
+	public Pessoa(long codigo, String nome, List<Endereco> endereco, List<Telefone> telefone) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
@@ -17,11 +19,11 @@ public abstract class Pessoa {
 
 	public Pessoa() {}
 
-	public int getCodigo() {
+	public long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(long codigo) {
 		this.codigo = codigo;
 	}
 
@@ -33,19 +35,19 @@ public abstract class Pessoa {
 		this.nome = nome;
 	}
 
-	public Endereco[] getEndereco() {
+	public List<Endereco> getEndereco() {
 		return endereco;
 	}
 
-	public void setEndereco(Endereco[] endereco) {
+	public void setEndereco(List<Endereco> endereco) {
 		this.endereco = endereco;
 	}
 
-	public Telefone[] getTelefone() {
+	public List<Telefone> getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(Telefone[] telefone) {
+	public void setTelefone(List<Telefone> telefone) {
 		this.telefone = telefone;
 	}
 	

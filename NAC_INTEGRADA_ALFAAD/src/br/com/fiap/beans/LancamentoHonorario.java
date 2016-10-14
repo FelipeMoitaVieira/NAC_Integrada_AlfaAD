@@ -1,15 +1,15 @@
 package br.com.fiap.beans;
 
-public class LancamentoHonoriaio {
+public class LancamentoHonorario {
 
 	private int codigo;
-	private String tipoTarefa;
+	private TipoTarefa tipoTarefa;
 	private Processo processo;
 	private String dataHonorario;
-	private float qtdeHora;
+	private double qtdeHora;
 	private String observacao;
 	
-	public LancamentoHonoriaio(int codigo, String tipoTarefa, Processo processo, String dataHonorario, float qtdeHora,
+	public LancamentoHonorario(int codigo, TipoTarefa tipoTarefa, Processo processo, String dataHonorario, double qtdeHora,
 			String observacao) {
 		super();
 		this.codigo = codigo;
@@ -21,7 +21,7 @@ public class LancamentoHonoriaio {
 	}
 	
 	
-	public LancamentoHonoriaio() {
+	public LancamentoHonorario() {
 		super();
 	}
 
@@ -32,10 +32,10 @@ public class LancamentoHonoriaio {
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
-	public String getTipoTarefa() {
+	public TipoTarefa getTipoTarefa() {
 		return tipoTarefa;
 	}
-	public void setTipoTarefa(String tipoTarefa) {
+	public void setTipoTarefa(TipoTarefa tipoTarefa) {
 		this.tipoTarefa = tipoTarefa;
 	}
 	public Processo getProcesso() {
@@ -50,10 +50,10 @@ public class LancamentoHonoriaio {
 	public void setDataHonorario(String dataHonorario) {
 		this.dataHonorario = dataHonorario;
 	}
-	public float getQtdeHora() {
+	public double getQtdeHora() {
 		return qtdeHora;
 	}
-	public void setQtdeHora(float qtdeHora) {
+	public void setQtdeHora(double qtdeHora) {
 		this.qtdeHora = qtdeHora;
 	}
 	public String getObservacao() {

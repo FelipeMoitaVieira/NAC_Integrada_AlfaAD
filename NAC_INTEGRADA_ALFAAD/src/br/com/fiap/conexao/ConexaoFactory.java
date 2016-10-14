@@ -29,8 +29,8 @@ public final class ConexaoFactory {
 		}
 		dados.close();
 		
-		
-		return DriverManager.getConnection(url,usuario,senha);
+		//CONEXÃO LOCALHOST FELPS
+		return DriverManager.getConnection(url,"Felps","fe1416");
 		
 	}
 }
