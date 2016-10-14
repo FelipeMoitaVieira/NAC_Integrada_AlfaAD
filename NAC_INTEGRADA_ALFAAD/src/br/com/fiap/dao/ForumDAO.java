@@ -14,19 +14,16 @@ public class ForumDAO extends PessoaDAO{
 				+ "values (SQ_AM_PESSOA.nextval,?)");
     	
     	strt.setString(1, f.getNome());
-    	
     	strt.execute();
+    	strt.close();
     	
         PreparedStatement estrutura = conexao.prepareStatement("insert into T_AAD_FORUM "
         		+ "(DS_FORUM,CD_FORUM) "
         		+ "values (?,SQ_AM_PESSOA.currval)");
- 
-        
-        	
-            estrutura.setString(1, f.getDescricao());
-            
-            estrutura.execute();
-            estrutura.close();
+ 	
+        estrutura.setString(1, f.getDescricao());
+        estrutura.execute();
+        estrutura.close();
  
        System.out.println("Gravado");
  
