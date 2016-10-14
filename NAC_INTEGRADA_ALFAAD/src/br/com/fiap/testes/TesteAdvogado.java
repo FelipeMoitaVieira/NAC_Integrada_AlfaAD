@@ -5,6 +5,7 @@ import java.sql.Connection;
 import javax.swing.JOptionPane;
 
 import br.com.fiap.beans.Advogado;
+import br.com.fiap.beans.TipoCausa;
 import br.com.fiap.conexao.ConexaoFactory;
 import br.com.fiap.dao.AdvogadoDAO;
 import br.com.fiap.excecao.Excecao;
@@ -20,15 +21,15 @@ public class TesteAdvogado {
 
 			Advogado ad = new Advogado();
 			
-
+			TipoCausa tp = new TipoCausa(1,"Comercial");
 			
-			ad.setCpf("78945612323");
-			ad.setEmail("teste@teste");
+			ad.setCpf("9");
+			ad.setEmail("tipoCausa@teste");
 			ad.setEndereco(null);
-			ad.setEspecialidade("Trabalhista");
-			ad.setNome("Josefino Aragão");
+			ad.setEspecialidade(tp);
+			ad.setNome("Cacilda");
 			ad.setNumeroOAB("123456");
-			ad.setRg("445556666");
+			ad.setRg("5");
 			ad.setSenha("1234");
 			ad.setTelefone(null);
 

@@ -14,14 +14,15 @@ public class LancamentoDespesaDAO {
 				+ "values (SQ_AM_LANCA_DESPESA.nextval,?,?,?,?,?)");
 		
 		
-		estrutura.setInt(1, ld.getCodigo());
+		estrutura.setInt(1, ld.getTipoDespesa().getCodigoTipoDespesa());
 		estrutura.setLong(2, ld.getProcesso().getNumeroProcesso());
 		estrutura.setString(3, ld.getDataDespesa());
 		estrutura.setDouble(4, ld.getValorDespesa());
 		estrutura.setString(5, ld.getObservacao());
 		estrutura.execute();
-		
 		estrutura.close();
+		
+		System.out.println("Gravado");
 		
 	}
 	

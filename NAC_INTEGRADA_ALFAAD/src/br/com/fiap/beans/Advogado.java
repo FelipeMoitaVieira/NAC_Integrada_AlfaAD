@@ -9,7 +9,7 @@ public class Advogado extends Pessoa{
 	private String rg;
 	private String email;
 	private String senha;
-	private String especialidade;
+	private TipoCausa especialidade;
 	
 	
 
@@ -20,7 +20,7 @@ public class Advogado extends Pessoa{
 	
 
 	public Advogado(int codigo, String nome, List<Endereco> endereco, List<Telefone> telefone, String numeroOAB,
-			String cpf, String rg, String email, String senha, String especialidade) {
+			String cpf, String rg, String email, String senha, TipoCausa especialidade) {
 		super(codigo, nome, endereco, telefone);
 		this.numeroOAB = numeroOAB;
 		this.cpf = cpf;
@@ -92,13 +92,13 @@ public class Advogado extends Pessoa{
 
 
 
-	public String getEspecialidade() {
+	public TipoCausa getEspecialidade() {
 		return especialidade;
 	}
 
 
 
-	public void setEspecialidade(String especialidade) {
+	public void setEspecialidade(TipoCausa especialidade) {
 		this.especialidade = especialidade;
 	}
 	

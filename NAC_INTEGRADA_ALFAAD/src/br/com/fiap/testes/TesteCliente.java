@@ -17,11 +17,9 @@ public static void main(String[] args) throws Excecao {
 
 			Connection con = ConexaoFactory.controlarInstancia().getConnection(JOptionPane.showInputDialog("Digite o usuário:"),
 					JOptionPane.showInputDialog("Digite a senha:"));
-
+			
 			Cliente cl = new Cliente();
-			
-
-			
+					
 			cl.setCnpj("78945612323");
 			cl.setEmail("teste@teste");
 			cl.setEndereco(null);
@@ -31,9 +29,6 @@ public static void main(String[] args) throws Excecao {
 			cl.setSenha("1234");
 			cl.setTelefone(null);
 			
-
-
-		
 
 			ClienteDAO clDAO = new ClienteDAO();
 			clDAO.gravar(cl, con);

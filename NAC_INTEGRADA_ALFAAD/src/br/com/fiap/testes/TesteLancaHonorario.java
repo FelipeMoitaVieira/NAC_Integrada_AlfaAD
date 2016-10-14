@@ -5,18 +5,19 @@ import java.sql.Connection;
 import javax.swing.JOptionPane;
 
 import br.com.fiap.beans.Advogado;
-import br.com.fiap.beans.LancamentoDespesa;
+import br.com.fiap.beans.LancamentoHonorario;
 import br.com.fiap.beans.Processo;
 import br.com.fiap.beans.TipoCausa;
-import br.com.fiap.beans.TipoDespesa;
+import br.com.fiap.beans.TipoTarefa;
 import br.com.fiap.conexao.ConexaoFactory;
-import br.com.fiap.dao.LancamentoDespesaDAO;
+import br.com.fiap.dao.LancamentoHonorarioDAO;
 import br.com.fiap.excecao.Excecao;
 
-public class TesteLancaDespesa {
+public class TesteLancaHonorario {
 
 	public static void main(String[] args) throws Excecao{
-
+		
+		
 		try{
 
 			Connection con = ConexaoFactory.controlarInstancia().getConnection(JOptionPane.showInputDialog("Digite o usuário:"),
@@ -24,9 +25,9 @@ public class TesteLancaDespesa {
 
 			Advogado ad = new Advogado();
 			Processo proc = new Processo();
-			LancamentoDespesa ld = new LancamentoDespesa();
+			LancamentoHonorario lh = new LancamentoHonorario();
 			TipoCausa tp = new TipoCausa(1,"Comercial");
-			TipoDespesa td = new TipoDespesa(1,"Xerox");
+			TipoTarefa tf = new TipoTarefa(3,"Estudo do Processo");
 			
 			ad.setCodigo(10);
 			ad.setCpf("78945612323");
@@ -52,21 +53,20 @@ public class TesteLancaDespesa {
 			proc.setResultado((byte) 1);
 			proc.setSituacao( (byte)1);
 
+			lh.setDataHonorario("14/10/2016");
+			lh.setObservacao("Teste Honorario");
+			lh.setProcesso(proc);
+			lh.setQtdeHora(1.2);
+			lh.setTipoTarefa(tf);
 			
 			
-			ld.setDataDespesa("12/10/2016");
-			ld.setObservacao("Testando");
-			ld.setProcesso(proc);
-			ld.setTipoDespesa(td);
-			ld.setValorDespesa(10);
 
-			LancamentoDespesaDAO ldDAO = new LancamentoDespesaDAO();
-			ldDAO.gravar(ld, con);
+			LancamentoHonorarioDAO lhDAO = new LancamentoHonorarioDAO();
+			lhDAO.gravar(lh, con);
 		}
 		catch(Exception e){
 			throw new Excecao("Erro",e);
 		}
-
 
 	}
 
