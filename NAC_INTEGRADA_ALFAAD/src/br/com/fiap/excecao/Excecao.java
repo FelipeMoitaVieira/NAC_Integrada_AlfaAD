@@ -24,5 +24,10 @@ public class Excecao extends Exception{
 		System.out.println(getMessage());
 		System.out.println("PrintStackTrace: ");
 	}
+	
+	public Excecao(Exception e){
+		System.out.println(e);
+		e.printStackTrace();
+	}
 
 }
