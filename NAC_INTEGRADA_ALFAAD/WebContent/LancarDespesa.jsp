@@ -6,7 +6,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<title>Lançar Despesa</title>
+<title>LanÃ§ar Despesa</title>
 
 <%@ include file="header.jsp"%>
 </head>
@@ -17,7 +17,7 @@
 
 	<div class="container">
 
-		<h3>LANÇAR DESPESA</h3>
+		<h3>LANÃ‡AR DESPESA</h3>
 
 
 		<br> <br>
@@ -27,13 +27,19 @@
 
 
 			<div class="form-group">
-				<label id="nome " for="idNome" class="col-sm-2 control-label">Nome:</label>
+				<label id="nome " for="idNome" class="col-sm-2 control-label">Tipo Despesa:</label>
 
-				<div class="col-sm-5">
-					<input type="text" name="nome" id="idNome"
-						placeholder="Digite o Nome" class="form-control"
-						onblur="validarNome (this,'erroNome');" onkeyup="alteraMaiusculo()">
+				<div class="col-sm-3">
+				<select id= "idMod" name= "mod" class="form-control">
+				<option>Selecione</option>
+				<c:forEach items="${descricaoTipoDespesa }" var= "t">
+				
+				<option value="${t.codigo }">${t.nome }</option>
+				
+				</c:forEach>
+				</select>
 						 <span class="erro" id="erroNome"></span>
+				
 				</div>
 			</div>
 			<!-- Fechamento do form-group-->
@@ -68,10 +74,10 @@
 
 			<div class="form-group ">
 
-				<label class="col-sm-2 control-label">Observações:</label>
+				<label class="col-sm-2 control-label">ObservaÃ§Ãµes:</label>
 				<div class="col-sm-5">
 					<textarea rows="5"  name="comentar" id="comentar"
-						class="form-control" placeholder="Digite aqui sua observação..."></textarea>
+						class="form-control" placeholder="Digite aqui sua observaÃ§Ã£o..."></textarea>
 				</div>
 			</div>
 
