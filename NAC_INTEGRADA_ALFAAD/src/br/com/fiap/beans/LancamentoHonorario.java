@@ -8,9 +8,13 @@ public class LancamentoHonorario {
 	private String dataHonorario;
 	private double qtdeHora;
 	private String observacao;
+	private double vlHoraAdvogado;
 	
-	public LancamentoHonorario(int codigo, TipoTarefa tipoTarefa, Processo processo, String dataHonorario, double qtdeHora,
-			String observacao) {
+	
+	
+	
+	public LancamentoHonorario(int codigo, TipoTarefa tipoTarefa, Processo processo, String dataHonorario,
+			double qtdeHora, String observacao, double vlHoraAdvogado) {
 		super();
 		this.codigo = codigo;
 		this.tipoTarefa = tipoTarefa;
@@ -18,9 +22,10 @@ public class LancamentoHonorario {
 		this.dataHonorario = dataHonorario;
 		this.qtdeHora = qtdeHora;
 		this.observacao = observacao;
+		this.vlHoraAdvogado = vlHoraAdvogado;
 	}
-	
-	
+
+
 	public LancamentoHonorario() {
 		super();
 	}
@@ -61,6 +66,16 @@ public class LancamentoHonorario {
 	}
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
+	}
+
+
+	public double getVlHoraAdvogado() {
+		return vlHoraAdvogado;
+	}
+
+
+	public void setVlHoraAdvogado(double vlHoraAdvogado) {
+		this.vlHoraAdvogado = vlHoraAdvogado;
 	}
 	
 	
