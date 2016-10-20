@@ -5,7 +5,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Lançar Honorário</title>
+<title>LanÃ§ar HonorÃ¡rio</title>
 <%@ include file="header.jsp"%>
 
 </head>
@@ -19,27 +19,54 @@
 
 
 		<div class="container">
-			<h3>LANÇAR HONORÁRIO</h3>
+			<h3>LANÃ‡AR HONORÃRIO</h3>
 		</div>
 
 		<br> <br>
 
 
-		<form action="lancarHonrarioServlet" id="campo"
+		<form action="LancarHonorarioServlet" id="campo"
 			class="form-horizontal" method="post">
 
-			<div class="form-group">
-				<label for="idNome" class="col-sm-2 control-label">Nome:</label>
-				<div class="col-sm-5">
+			<input type="hidden" name="acao" value="cadastrar"> 
+			<input	type="hidden" name="numeroProcesso"	value="${processo.numeroProcesso }">
 
-					<input type="text" name="nome" id="idNome" size="20" maxlength="50"
-						class="form-control" placeholder="Descrição Honorário"
-						onblur="validarNome (this ,'erroNome' );"> <span
-						class="erro" id="erroNome" onkeyup="alteraMaiusculo()"></span>
+			<div class="form-group">
+			
+				<label class="col-sm-2 control-label">NÃºmero Processo </label>
+				<div class="col-sm-2">
+				
+					<c:url value="ProcessoServlet" var="link2">
+						<c:param name="acao" value="lancarHonorario"></c:param>
+						<c:param name="nrProcesso" value="${processo.numeroProcesso }"></c:param>
+
+					</c:url>
+					<input type="text" readonly="readonly"
+						value="${processo.numeroProcesso }" class="form-control">
 				</div>
 
+
+			</div>
+
+
+
+			<div class="form-group">
+				<label for="idTpTarefa" class="col-sm-2 control-label">Tipo
+					Tarefa:</label>
+				<div class="col-sm-3">
+					<select id="idTpTarefa" name="tpTarefa" class="form-control">
+						<option value="0">Selecione</option>
+						<c:forEach items="${tipoTarefa}" var="t">
+
+							<option value="${t.codigoTipoTarefa }">${t.descricaoTipoTarefa }</option>
+
+						</c:forEach>
+					</select> <span class="erro" id="erroNome"></span>
+
+				</div>
 			</div>
 			<!-- Fechamento da form-group -->
+			
 
 			<div class="form-group">
 				<label for="idData" class="col-sm-2 control-label"> Data: </label>
@@ -70,10 +97,10 @@
 
 			<div class="form-group ">
 
-				<label class="col-sm-2 control-label">Observações:</label>
+				<label class="col-sm-2 control-label">ObservaÃ§Ãµes:</label>
 				<div class="col-sm-5">
-					<textarea rows="5"  name="comentar" id="comentar"
-						class="form-control" placeholder="Digite aqui sua observação..."></textarea>
+					<textarea rows="5" name="observacao" id="observacao"
+						class="form-control" placeholder="Digite aqui sua observaÃ§Ã£o..."></textarea>
 				</div>
 			</div>
 			<!-- Fechamento da form-group -->
@@ -84,8 +111,8 @@
 				<p class="text-center">
 
 					<input id="btnCadastrar" type="submit" class="btn btn-warning"
-						value="Cadastrar"> <a href="ListarProcesso.html"> <input
-						class="btn btn-danger" id="btnVoltar" type="button" value="Voltar"></a>
+						value="Cadastrar"> <input class="btn btn-danger"
+						id="btnVoltar" type="button" value="Voltar">
 				</p>
 			</div>
 
@@ -93,7 +120,7 @@
 
 	</div>
 	<!-- Fechamento da container -->
-
+	<h4 style="color: red;">${msg}</h4>
 
 	<script type="text/javascript" src="js/script.js" charset="utf-8"></script>
 
