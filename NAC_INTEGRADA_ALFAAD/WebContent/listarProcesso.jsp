@@ -23,7 +23,7 @@
 			method="post"  id="campo" >
 
 			<div class="form-group">
-				<label for="idNome" class="col-sm-2 control-label">Número do
+				<label for="idNome" class="col-sm-2 control-label">NÃºmero do
 					Processo:</label>
 		
 				<div class="col-sm-3">
@@ -54,7 +54,7 @@
 
 
 			<div class="form-group">
-				<label for="idData" class="col-sm-2 control-label"> Período:
+				<label for="idData" class="col-sm-2 control-label"> PerÃ­odo:
 				</label>
 				<div class="col-sm-2">
 
@@ -64,7 +64,7 @@
 						OnKeyPress="formatar('##/##/####', this) "
 						onblur="validarData (this ,'erroData' );"><br> <input
 						type="text" class="form-control" name="data2" id="idData2"
-						placeholder="Até" maxlength="10"
+						placeholder="AtÃ©" maxlength="10"
 						OnKeyPress="formatar('##/##/####', this) "
 						onblur="validarData (this ,'erroData' );">
 
@@ -84,9 +84,9 @@
 
 		<table class="table table-bordered">
 			<tr>
-				<th class= "active">Número</th>
+				<th class= "active">NÃºmero</th>
 				<th class= "active">Cliente</th>
-				<th class= "active">Descrição</th>
+				<th class= "active">DescriÃ§Ã£o</th>
 				<th class= "active"></th>
 				<th class= "active"></th>
 			</tr>
@@ -108,7 +108,7 @@
 							<c:param name="acao" value="lancarDespesa"></c:param>
 							<c:param name="nrProcesso" value="${processo.numeroProcesso }"></c:param>
 						</c:url>
-					<a href="${link1 }" class="btn btn-info"> Lançar Despesa</a></td>
+					<a href="${link1 }" class="btn btn-info"> LanÃ§ar Despesa</a></td>
 					 
 					 
 					 <td class="lancarHonorario">
@@ -117,7 +117,7 @@
 							<c:param name="nrProcesso" value="${processo.numeroProcesso }"></c:param>
 						</c:url>
 					 
-					 <a href="#"class=" btn btn-danger">Lançar Honorário</a></td>
+					 <a href="${link2 }" class=" btn btn-danger">LanÃ§ar HonorÃ¡rio</a></td>
 				
 					
 				</tr>
