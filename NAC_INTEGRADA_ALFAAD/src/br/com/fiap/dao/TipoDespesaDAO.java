@@ -10,7 +10,7 @@ import br.com.fiap.beans.TipoDespesa;
 
 public class TipoDespesaDAO {
 
-	public List <TipoDespesa> getLista (Connection conexao) throws Exception{
+	public List <TipoDespesa> getListaTipo (Connection conexao) throws Exception{
 		List<TipoDespesa> lstTipoDespesa = new ArrayList<TipoDespesa>();
 		PreparedStatement stmt = conexao.prepareStatement("SELECT TD.CD_TIPO_DESPESA, TD.DS_TIPO_DESPESA FROM T_AAD_TIPO_DESPESA TD");
 		ResultSet resultadoDados = stmt.executeQuery();

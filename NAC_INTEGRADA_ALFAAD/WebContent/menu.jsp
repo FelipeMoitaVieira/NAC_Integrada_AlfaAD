@@ -1,15 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title></title>
-</head>
-<body>
-
- 
 <div class="navbar-wrapper">
       <div class="container">
 
@@ -27,11 +15,11 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 
-                <li class="active"><a href="listarProcesso.jsp">LISTAR PROCESSOS</a></li>
+                <li ><a href="ProcessoServlet?acao=listar">LISTAR PROCESSOS</a></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LANCAMENTOS <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LANÇAMENTOS <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="LancarDespesa.jsp">Lançar Despesa</a></li>
+                    <li><a href="LancarDespesaServlet?acao=carregar">Lançar Despesa</a></li>
                     <li><a href="lancarHonorario.jsp">Lançar Honorário</a></li>
                     
                     
@@ -48,7 +36,3 @@
 
 
 <hr>
-
-
-</body>
-</html>

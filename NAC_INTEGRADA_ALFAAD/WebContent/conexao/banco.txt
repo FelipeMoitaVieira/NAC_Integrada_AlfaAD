@@ -1,0 +1,4 @@
+jdbc:oracle:thin:/:@localhost:1521:XE
+jdbc:oracle:thin:/:@oracle.fiap.com.br:1521:ORCL
+
+jdbc:oracle:thin:/:@192.168.60.15:1521:ORCL

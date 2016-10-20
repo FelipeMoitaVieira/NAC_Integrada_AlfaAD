@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -87,23 +87,37 @@
 				<th class= "active">Número</th>
 				<th class= "active">Cliente</th>
 				<th class= "active">Descrição</th>
+				<th class= "active"></th>
+				<th class= "active"></th>
 			</tr>
 
-			<!--
-			// RESULTADO DA TABELA
 			
-			<c:forEach items="${lista}" var="processo">
+			
+			
+			<c:forEach items="${processo}" var="processo">
 			
 			
 			 <tr>
-					<td class="active">${processo.numero}</td>
-					<td class="success">${processo.cliente}</td>
-					<td class="warning">${processo.descricao}</td>
-					<td class="danger">${ }</td>
-					<td class="info">${ }</td>
+					<td class="active">${processo.numeroProcesso}</td>
+					<td class="success">${processo.cliente.nome}</td>
+					<td class="warning">${processo.descricaoProcesso}</td>
 					
-						<td><a href="#" class="btn btn-info"> Lancar Despersa</a> <a href="#"
-						class=" btn btn-danger">Lancar Honorário</a></td>
+					
+					<td class="lancarDespesa">
+						<c:url value="ProcessoServlet" var="link1">
+							<c:param name="acao" value="lancarDespesa"></c:param>
+							<c:param name="nrProcesso" value="${processo.numeroProcesso }"></c:param>
+						</c:url>
+					<a href="${link1 }" class="btn btn-info"> Lançar Despesa</a></td>
+					 
+					 
+					 <td class="lancarHonorario">
+						<c:url value="ProcessoServlet" var="link2">
+							<c:param name="acao" value="lancarHonorario"></c:param>
+							<c:param name="nrProcesso" value="${processo.numeroProcesso }"></c:param>
+						</c:url>
+					 
+					 <a href="#"class=" btn btn-danger">Lançar Honorário</a></td>
 				
 					
 				</tr>
@@ -112,7 +126,7 @@
 		
 		
 			
-			-->
+			
 		</table>
 	</div>
 

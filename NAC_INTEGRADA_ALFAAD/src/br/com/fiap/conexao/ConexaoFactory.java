@@ -17,7 +17,7 @@ public final class ConexaoFactory {
 	}
 	
 	public Connection getConnection (String usuario, String senha) throws Exception{
-		FileReader arquivo = new FileReader(System.getProperty("user.dir") + "/conexao/banco.txt");
+		FileReader arquivo = new FileReader("D:/NACAO/NAC_INTEGRADA_ALFAAD/conexao/banco.txt");
 		BufferedReader dados = new BufferedReader(arquivo);
 		
 		String url = dados.readLine();
@@ -28,6 +28,8 @@ public final class ConexaoFactory {
 			Class.forName("com.mysql.jdbc.Driver");
 		}
 		dados.close();
+		
+		
 		
 		//CONEXÃO LOCALHOST FELPS
 		return DriverManager.getConnection(url,"Felps","fe1416");

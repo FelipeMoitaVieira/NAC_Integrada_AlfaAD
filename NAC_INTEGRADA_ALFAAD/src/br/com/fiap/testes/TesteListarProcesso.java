@@ -41,7 +41,7 @@ public class TesteListarProcesso {
 						);
 			}
 			
-			
+			/*
 			int intBusca = Integer.parseInt(JOptionPane.showInputDialog("Digite o número do processo que deseja pesquisar"));
 			Processo p = new Processo();
 			p = pDAO.pesquisarProcessoNumero(intBusca, con);
@@ -77,6 +77,7 @@ public class TesteListarProcesso {
 						"\nObservações: " + p1.getObservacao()
 						);
 			}
+			*/
 		}catch(Exception e){
 			throw new Excecao(e);
 		}

@@ -1,42 +1,52 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html">
+<!DOCTYPE html>
 <html>
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
-<title>LanÃ§ar Despesa</title>
-
+<title>Lançar Despesa</title>
 <%@ include file="header.jsp"%>
 </head>
+
 <body>
 	<%@ include file="menu.jsp"%>
 
 	<br>
 
 	<div class="container">
-
-		<h3>LANÃ‡AR DESPESA</h3>
-
-
-		<br> <br>
-
-		<form action="lancarDespesaServlet" class="form-horizontal"
-			method="post" id="campo" >
-
-
+		<h3>LANÇAR DESPESA</h3>
+		<br> 
+		<br>
+		<form action="LancarDespesaServlet" class="form-horizontal"	method="post" id="campo" >
+			
+			<input type="hidden" name="acao" value="cadastrar">
+			<input type="hidden" name="numeroProcesso" value="${processo.numeroProcesso }">
+			
+			
 			<div class="form-group">
-				<label id="nome " for="idNome" class="col-sm-2 control-label">Tipo Despesa:</label>
+				<label class="col-sm-2 control-label">Número Processo: </label>
+				<div div class="col-sm-2">
+				
+				<c:url value="ProcessoServlet" var="link1">
+							<c:param name="acao" value="lancarDespesa"></c:param>
+							<c:param name="nrProcesso" value="${processo.numeroProcesso }"></c:param>
+							
+				</c:url>
+				<input type="text" readonly="readonly" value="${processo.numeroProcesso }" class="form-control">
+				</div>
+			</div>
+				<div class="form-group">
+				
+				<label for="idTpDespesa" class="col-sm-2 control-label">Tipo Despesa:</label>
 
 				<div class="col-sm-3">
-				<select id= "idMod" name= "mod" class="form-control">
-				<option>Selecione</option>
-				<c:forEach items="${descricaoTipoDespesa }" var= "t">
+				<select id= "idTpDespesa" name= "tpDespesa" class="form-control">
+					<option value="0">Selecione</option>
+					<c:forEach items="${tipoDespesa}" var= "t">
 				
-				<option value="${t.codigo }">${t.nome }</option>
+						<option value="${t.codigoTipoDespesa }">${t.descricaoTipoDespesa }</option>
 				
-				</c:forEach>
+					</c:forEach>
 				</select>
 						 <span class="erro" id="erroNome"></span>
 				
@@ -74,10 +84,10 @@
 
 			<div class="form-group ">
 
-				<label class="col-sm-2 control-label">ObservaÃ§Ãµes:</label>
+				<label class="col-sm-2 control-label">Observações:</label>
 				<div class="col-sm-5">
-					<textarea rows="5"  name="comentar" id="comentar"
-						class="form-control" placeholder="Digite aqui sua observaÃ§Ã£o..."></textarea>
+					<textarea rows="5"  name="observacao" id="idObservacao"
+						class="form-control" placeholder="Digite aqui sua observação..."></textarea>
 				</div>
 			</div>
 
@@ -94,7 +104,7 @@
 		</form>
 	</div>
 	<!-- Fechamento do container-->
-
+	<h4 style="color:red;">${msg}</h4>
 
 	<script type="text/javascript" src="js/script.js" charset="utf-8"></script>
 
