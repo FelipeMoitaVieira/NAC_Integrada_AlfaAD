@@ -53,23 +53,19 @@ public class ProcessoServlet extends HttpServlet {
 				break;
 			
 			case "lancarHonorario":
-				
+						lancarHonorario(request, con);
+				retorno = "LancarHonorarioServlet?acao=carregar";
 				
 				break;
+				
+			
 			}
-
-
-
-
-
-		
-
 
 
 
 			request.getRequestDispatcher(retorno).forward(request, response);
 
-			//Bloco Exceção
+			//Bloco ExceÃ§Ã£o
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -82,7 +78,7 @@ public class ProcessoServlet extends HttpServlet {
 		request.setAttribute("processo", pDAO.getProcessos(con));
 		
 	}
-	
+
 	private void lancarDespesa(HttpServletRequest request, Connection con) throws Exception{
 		if(request.getParameter("nrProcesso") != null){
 			int nrProcesso = Integer.parseInt(request.getParameter("nrProcesso"));
@@ -92,5 +88,23 @@ public class ProcessoServlet extends HttpServlet {
 		}
 		
 	}
+	
+	private void lancarHonorario(HttpServletRequest request, Connection con) throws Exception {
+        if (request.getParameter("nrProcesso") != null){
+        	int nrProcesso = Integer.parseInt(request.getParameter("nrProcesso"));
+        	Processo processo = processoDAO.pesquisarProcessoNumero(nrProcesso, con);
+        	request.setAttribute("processo", processo);
+        	request.getRequestDispatcher("LancarHonorarioServlet?acao=carregar");
+        	
+        	
+        }
+
+		
+		
+	}
+
+	
+
+	
 
 }
