@@ -62,13 +62,15 @@ public class LancamentoDespesaDAO {
 		
 	}
 	
-	public List<LancamentoDespesa> getLista(Connection conexao) throws Exception{
+	public List<LancamentoDespesa> getLista(Connection conexao, int codigo) throws Exception{
 		List<LancamentoDespesa> lstDespesa = new ArrayList<LancamentoDespesa>();
 		
 		PreparedStatement stmt = conexao.prepareStatement("SELECT LD.CD_LANCAMENTO, TD.CD_TIPO_DESPESA, TD.DS_TIPO_DESPESA, P.NR_PROCESSO, "
-				+ "P.DS_PROCESSO, LD.DT_DESPESA, LD.VL_DESPESA, LD.DS_OBSERVACAO "
+				+ "P.DS_PROCESSO, TO_CHAR(LD.DT_DESPESA,'DD/MM/YYYY') DATA, LD.VL_DESPESA, LD.DS_OBSERVACAO "
 				+ "FROM T_AAD_LANCA_DESPESA LD INNER JOIN T_AAD_PROCESSO P ON (LD.NR_PROCESSO = P.NR_PROCESSO) "
-				+ "INNER JOIN T_AAD_TIPO_DESPESA TD ON (LD.CD_TIPO_DESPESA = TD.CD_TIPO_DESPESA)");
+				+ "INNER JOIN T_AAD_TIPO_DESPESA TD ON (LD.CD_TIPO_DESPESA = TD.CD_TIPO_DESPESA) WHERE LD.NR_PROCESSO = ? "
+				+ "ORDER BY LD.CD_LANCAMENTO");
+		stmt.setInt(1, codigo);
 		ResultSet resultadoDados = stmt.executeQuery();
 		
 		while(resultadoDados.next()){
@@ -83,7 +85,7 @@ public class LancamentoDespesaDAO {
 			tipoDespesa.setDescricaoTipoDespesa(resultadoDados.getString("DS_TIPO_DESPESA"));
 			
 			lancaDespesa.setCodigo(resultadoDados.getInt("CD_LANCAMENTO"));
-			lancaDespesa.setDataDespesa(resultadoDados.getString("DT_DESPESA"));
+			lancaDespesa.setDataDespesa(resultadoDados.getString("DATA"));
 			lancaDespesa.setObservacao(resultadoDados.getString("DS_OBSERVACAO"));
 			lancaDespesa.setValorDespesa(resultadoDados.getDouble("VL_DESPESA"));
 			lancaDespesa.setProcesso(processo);
@@ -96,6 +98,45 @@ public class LancamentoDespesaDAO {
 		stmt.close();
 				
 		return lstDespesa;
+	}
+	
+	
+	public LancamentoDespesa getDespesa(Connection conexao, int codigo) throws Exception{
+		LancamentoDespesa lancaDespesa = new LancamentoDespesa();
+		
+		PreparedStatement stmt = conexao.prepareStatement("SELECT LD.CD_LANCAMENTO, TD.CD_TIPO_DESPESA, TD.DS_TIPO_DESPESA, P.NR_PROCESSO, "
+				+ "P.DS_PROCESSO, TO_CHAR(LD.DT_DESPESA,'DD/MM/YYYY') DATA, LD.VL_DESPESA, LD.DS_OBSERVACAO "
+				+ "FROM T_AAD_LANCA_DESPESA LD INNER JOIN T_AAD_PROCESSO P ON (LD.NR_PROCESSO = P.NR_PROCESSO) "
+				+ "INNER JOIN T_AAD_TIPO_DESPESA TD ON (LD.CD_TIPO_DESPESA = TD.CD_TIPO_DESPESA) WHERE LD.CD_LANCAMENTO = ? "
+				);
+		stmt.setInt(1, codigo);
+		ResultSet resultadoDados = stmt.executeQuery();
+		
+		while(resultadoDados.next()){
+			
+			TipoDespesa tipoDespesa = new TipoDespesa();
+			Processo processo = new Processo();
+			
+			processo.setNumeroProcesso(resultadoDados.getInt("NR_PROCESSO"));
+			processo.setDescricaoProcesso(resultadoDados.getString("DS_PROCESSO"));
+			
+			tipoDespesa.setCodigoTipoDespesa(resultadoDados.getInt("CD_TIPO_DESPESA"));
+			tipoDespesa.setDescricaoTipoDespesa(resultadoDados.getString("DS_TIPO_DESPESA"));
+			
+			lancaDespesa.setCodigo(resultadoDados.getInt("CD_LANCAMENTO"));
+			lancaDespesa.setDataDespesa(resultadoDados.getString("DATA"));
+			lancaDespesa.setObservacao(resultadoDados.getString("DS_OBSERVACAO"));
+			lancaDespesa.setValorDespesa(resultadoDados.getDouble("VL_DESPESA"));
+			lancaDespesa.setProcesso(processo);
+			lancaDespesa.setTipoDespesa(tipoDespesa);
+			
+			
+			
+		}
+		resultadoDados.close();
+		stmt.close();
+				
+		return lancaDespesa;
 	}
 	
 }

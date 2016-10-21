@@ -27,9 +27,9 @@ public abstract class LancamentoDespesaBO {
 	public static void atualizar(LancamentoDespesa ld, Connection conexao) throws Exception{
 		new LancamentoDespesaDAO().atualizar(ld, conexao);
 	}
-	public static List<LancamentoDespesa> getLista(Connection conexao) throws Exception{
+	public static List<LancamentoDespesa> getLista(Connection conexao,int codigo) throws Exception{
 		List<LancamentoDespesa> lstDespesa = new ArrayList<LancamentoDespesa>();		
-		return new LancamentoDespesaDAO().getLista(conexao) ;
+		return new LancamentoDespesaDAO().getLista(conexao,codigo) ;
 		
 	}
 	

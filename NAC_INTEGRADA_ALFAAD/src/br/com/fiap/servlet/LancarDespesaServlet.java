@@ -54,14 +54,23 @@ public class LancarDespesaServlet extends HttpServlet{
 				retorno = "lancarDespesa.jsp";
 				break;
 			
+			case "listar":
+				listarDespesa(request,con);
+				retorno = "listarDespesa.jsp";
+				break;
 			
+			case "exibir": 
+				editar(request,con); carregaOpcao(request,con);
+				retorno = "lancarDespesa.jsp";
+				break;
+			case "atualizar":
+				atualizar(request,con);
+				retorno = "lancarDespesa.jsp";
+				
 			}
+			
 
 
-
-
-
-		
 
 
 
@@ -76,12 +85,38 @@ public class LancarDespesaServlet extends HttpServlet{
 	}
 
 
+	private void editar(HttpServletRequest request, Connection con) throws Exception {
+		LancamentoDespesaDAO ldDAO = new LancamentoDespesaDAO();
+		int codigoTipoDespesa = Integer.parseInt(request.getParameter("cdDespesa"));
+		LancamentoDespesa ld = ldDAO.getDespesa(con, codigoTipoDespesa);
+		request.setAttribute("despesa", ld);
+		int nrProcesso = Integer.parseInt(request.getParameter("nrProcesso"));
+		Processo processo = new Processo();
+		processo.setNumeroProcesso(nrProcesso);
+		request.setAttribute("processo", processo);
+	}
+
+
+	private void listarDespesa(HttpServletRequest request, Connection con) throws Exception{
+		LancamentoDespesaDAO ldDAO = new LancamentoDespesaDAO();
+		int nrProcesso = Integer.parseInt(request.getParameter("nrProcesso")); 
+		Processo p = new Processo();
+		p.setNumeroProcesso(nrProcesso);
+		request.setAttribute("despesa", ldDAO.getLista(con,nrProcesso));
+		request.setAttribute("processo", p);
+		
+	}
+
+
 	private void cadastrar(HttpServletRequest request, Connection con) throws Exception {
 		int codigoTipoDespesa = Integer.parseInt(request.getParameter("tpDespesa"));
-		int nrProcesso = Integer.parseInt(request.getParameter("numeroProcesso"));
+		int nrProcesso = Integer.parseInt(request.getParameter("nrProcesso"));
 		String dataDespesa = request.getParameter("data");
 		double valorDespesa = Double.parseDouble(request.getParameter("valor"));
 		String obs = request.getParameter("observacao");
+		
+		
+		
 		
 		Processo processo = new Processo();
 		processo.setNumeroProcesso(nrProcesso);
@@ -95,7 +130,7 @@ public class LancarDespesaServlet extends HttpServlet{
 		ld.setProcesso(processo);
 		ld.setTipoDespesa(tpDespesa);
 		ld.setValorDespesa(valorDespesa);
-		
+
 		ldDAO.gravar(ld, con);
 		
 		request.setAttribute("msg", "Despesa Cadastrada");
@@ -110,7 +145,34 @@ public class LancarDespesaServlet extends HttpServlet{
 	}
 
 	
-	
+	private void atualizar(HttpServletRequest request, Connection con) throws Exception {
+		int codigoTipoDespesa = Integer.parseInt(request.getParameter("tpDespesa"));
+		int nrProcesso = Integer.parseInt(request.getParameter("nrProcesso"));
+		String dataDespesa = request.getParameter("data");
+		double valorDespesa = Double.parseDouble(request.getParameter("valor"));
+		String obs = request.getParameter("observacao");
+		
+		
+		
+		
+		Processo processo = new Processo();
+		processo.setNumeroProcesso(nrProcesso);
+		
+		TipoDespesa tpDespesa = new TipoDespesa();
+		tpDespesa.setCodigoTipoDespesa(codigoTipoDespesa);
+		
+		LancamentoDespesa ld = new LancamentoDespesa();
+		ld.setDataDespesa(dataDespesa);
+		ld.setObservacao(obs);
+		ld.setProcesso(processo);
+		ld.setTipoDespesa(tpDespesa);
+		ld.setValorDespesa(valorDespesa);
+
+		ldDAO.atualizar(ld, con);
+		
+		request.setAttribute("msg", "Despesa Cadastrada");
+		
+	}
 
 	
 	

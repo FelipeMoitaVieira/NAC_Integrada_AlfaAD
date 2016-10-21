@@ -22,7 +22,7 @@ public class TesteListarDespesas {
 			
 			LancamentoDespesaDAO ldDAO = new LancamentoDespesaDAO();
 			List<LancamentoDespesa> lstDespesa = new ArrayList<LancamentoDespesa>();
-			lstDespesa = ldDAO.getLista(con);
+			lstDespesa = ldDAO.getLista(con,15);
 			
 			for (LancamentoDespesa ld: lstDespesa){
 				System.out.println("Código Lançamento: " + ld.getCodigo() + 
