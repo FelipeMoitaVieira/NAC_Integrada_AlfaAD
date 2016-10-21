@@ -17,10 +17,10 @@
                 
                 <li ><a href="ProcessoServlet?acao=listar">LISTAR PROCESSOS</a></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LANÇAMENTOS <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LANÃ‡AMENTOS <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="LancarDespesaServlet?acao=carregar">Lançar Despesa</a></li>
-                    <li><a href="lancarHonorario.jsp">Lançar Honorário</a></li>
+                    <li><a href="LancarDespesaServlet?acao=carregar">LanÃ§ar Despesa</a></li>
+                    <li><a href="LancarHonorarioServlet?acao=carregar">LanÃ§ar HonorÃ¡rio</a></li>
                     
                     
                   </ul>
