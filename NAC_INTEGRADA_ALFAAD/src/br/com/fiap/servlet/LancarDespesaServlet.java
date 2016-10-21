@@ -63,6 +63,7 @@ public class LancarDespesaServlet extends HttpServlet{
 				editar(request,con); carregaOpcao(request,con);
 				retorno = "lancarDespesa.jsp";
 				break;
+			
 			case "atualizar":
 				atualizar(request,con);
 				retorno = "lancarDespesa.jsp";
